@@ -1,5 +1,6 @@
 from typing import List, Dict, Union, Generator
 import string
+import random
 
 # We will work with such dicts
 ST = Dict[str, Union[str, int]]
@@ -15,9 +16,10 @@ def task_1_fix_names_start_letter(data: DT) -> DT:
         fix_names_start_letters([{'name': 'Alex', 'age': 26}, {'name': 'denys', 'age': 89}])
         >>> [{'name': 'Alex', 'age': 26}, {'name': 'Denys', 'age': 89}]
     """
-    for x in data:
-        x['name'].title()
-        return data
+    for d in data:
+        if d.get('name') is not None:
+            d['name'] = d['name'].title()
+    return data
 
 
 def task_2_remove_dict_fields(data: DT, redundant_keys: List[str]) -> DT:
@@ -66,7 +68,8 @@ def task_6_min_value_list_of_dicts(data: DT, key: str) -> ST:
     Returns:
 
     """
-    pass
+    check_data = [x for x in data if x.get('age', None)]
+    return min(check_data, key=lambda x: x.get(key))
 
 
 def task_7_max_value_list_of_lists(data: List[List[int]]) -> int:
@@ -110,7 +113,12 @@ def task_10_generator_of_simple_numbers() -> Generator[int, None, None]:
         next(a)
         >>> 3
     """
-    pass
+    for num in range(2, 201):
+       for i in range(2,num):
+           if (num % i) == 0:
+               break
+       else:
+           yield num
 
 
 def task_11_create_list_of_random_characters() -> List[str]:
@@ -118,4 +126,4 @@ def task_11_create_list_of_random_characters() -> List[str]:
     Create list of 20 elements where each element is random letter from latin alphabet
 
     """
-    pass
+    return list((random.choice(string.ascii_lowercase) for x in range(20) ))

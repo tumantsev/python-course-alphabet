@@ -131,7 +131,7 @@ class DictComprehension(unittest.TestCase):
         ]
         actual_result = task_1_fix_names_start_letter(given_data)
         for student in actual_result:
-            self.assertTrue(student['name'][0].isupper())
+            self.assertTrue(student['name'][0].istitle())
 
     def test_task_9_empty_fields(self):
         given_data = [
@@ -148,7 +148,7 @@ class DictComprehension(unittest.TestCase):
         actual_result = task_1_fix_names_start_letter(given_data)
         for student in actual_result:
             if student.get('name') is not None:
-                self.assertTrue(student['name'][0].isupper())
+                self.assertTrue(student['name'][0].istitle())
 
     def test_task_2_valid_values(self):
         given_data = [{'age': 43, 'name': 'denis', 'sex': 'male'},
