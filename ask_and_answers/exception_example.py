@@ -5,6 +5,7 @@ class ExampleOnLection(Exception):
 def some_useful_function():
     raise ExampleOnLection
 
+some_list = []
 
 if __name__ == "__main__":
     try:
