@@ -2,9 +2,9 @@ from ruamel.yaml import YAML
 
 
 class Leg:
-    def __init__(self, weight=50, lenght=50):
+    def __init__(self, weight=50, length=50):
         self.weight = weight
-        self.age = lenght
+        self.age = length
 
 
 class Animal:
@@ -17,11 +17,14 @@ class Animal:
     def speak(self):
         return 'Moo'
 
+
 leg = Leg()
 cow = Animal('Milka', 5, leg)
 
 yaml = YAML()
 # yaml = ruamel.yaml.YAML()
+
+
 yaml.register_class(Animal)
 yaml.register_class(Leg)
 
