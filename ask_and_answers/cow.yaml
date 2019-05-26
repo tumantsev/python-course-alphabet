@@ -1,0 +1,6 @@
+!Animal
+name: Milka
+age: 5
+leg: !Leg
+  weight: 50
+  age: 50
