@@ -1,3 +1,4 @@
+import uuid
 """
 Вам небхідно написати 3 класи. Колекціонери Гаражі та Автомобілі.
 Звязкок наступний один колекціонер може мати багато гаражів.
@@ -53,7 +54,14 @@ class Cesar:
 
 
 class Car:
-    pass
+    def __init__(self, price, type, producer, mileage):
+
+        self.price = price
+        self.type = type
+        self.producer = producer
+        self.number = uuid.uuid4().hex
+        self.mileage = mileage
+
 
 
 class Garage:
